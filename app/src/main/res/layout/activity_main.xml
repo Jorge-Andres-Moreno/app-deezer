@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:title="@null"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -30,11 +30,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toLeftOf="@id/button_search"
+                    android:layout_marginStart="10dp"
+                    android:layout_toStartOf="@id/button_search"
                     android:background="@drawable/custom_edittext"
                     android:hint="Busca una lista de reproducción"
-                    android:paddingHorizontal="5dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingHorizontal="10dp"
                     android:paddingVertical="15dp"
                     android:textColor="@android:color/black" />
 
@@ -54,7 +56,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/playlist"
+        android:id="@+id/recycler_playlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar_layout" />
