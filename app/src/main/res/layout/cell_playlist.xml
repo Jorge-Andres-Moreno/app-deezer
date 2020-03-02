@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/image_playlist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/song_icon" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/image_playlist"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Lista"
+            android:textColor="@android:color/black"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/name_created_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del usuario creador"
+            android:textColor="@android:color/black"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/count_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número de items"
+            android:textColor="@android:color/black"
+            android:textSize="17dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/image_playlist"
+        android:background="@color/dark_gray" />
+
+</RelativeLayout>
