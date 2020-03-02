@@ -1,6 +1,8 @@
 package com.example.appdeezer1;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +16,10 @@ import com.squareup.picasso.Picasso;
 
 public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.PlaylistHolder> {
 
-    private Context context;
+    private Activity context;
     private ControllerPlaylist controllerPlaylist;
 
-    PlaylistAdapter(Context context, ControllerPlaylist controllerPlaylist) {
+    PlaylistAdapter(Activity context, ControllerPlaylist controllerPlaylist) {
         this.context = context;
         this.controllerPlaylist = controllerPlaylist;
     }
@@ -34,7 +36,7 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.Playli
         Picasso.get().load(controllerPlaylist.playlists.get(position).getMediumImageUrl()).into(holder.imagePlaylist);
         holder.name_playlist.setText("Nombre de la lista: " + controllerPlaylist.playlists.get(position).getTitle());
         holder.name_created_user.setText("Nombre del creador: " + controllerPlaylist.playlists.get(position).getCreator().getName());
-        holder.count_items.setText("Numero de canciones: " + controllerPlaylist.playlists.get(position).getTracks().toArray().length);
+        holder.count_items.setText("Numero de canciones: " + controllerPlaylist.playlists.get(position).getTracks().size());
         holder.pos = position;
     }
 
@@ -63,7 +65,9 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.Playli
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.card) {
-
+                Intent in = new Intent(context, PlaylistActivity.class);
+                in.putExtra("playlistID", controllerPlaylist.playlists.get(pos).getId());
+                context.startActivity(in);
             }
         }
     }

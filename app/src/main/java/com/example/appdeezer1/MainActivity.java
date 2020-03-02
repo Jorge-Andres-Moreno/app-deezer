@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         controller = new ControllerPlaylist(this);
 
         // Init recycler view with custom adapter for items in list
-        adapter = new PlaylistAdapter(this,controller);
+        adapter = new PlaylistAdapter(this, controller);
         recycler = findViewById(R.id.recycler_playlist);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.button_search) {
-                    controller.searchPlaylistOnDeezer(search.getText().toString(), new Callback() {
+                    controller.searchPlaylist(search.getText().toString(), new Callback() {
                         @Override
                         public void notify(Object result, int statusCode) {
                             Log.i("MAIN_REQUEST_PLAYLIST", statusCode == Callback.SUCESS_CODE ? "SUCESS" : "FAILED");
